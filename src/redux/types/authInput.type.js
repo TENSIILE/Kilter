@@ -1,0 +1,10 @@
+export const CHANGE_INPUT = 'AUTH/CHANGE_INPUT'
+
+export const LOGIN_LOGIN     = 'login.login'
+export const LOGIN_PASSWORD  = 'login.password'
+export const SIGNUP_LOGIN    = 'signup.login'
+export const SIGNUP_EMAIL    = 'signup.email'
+export const SIGNUP_PASSWORD = 'signup.password'
+export const SIGNUP_PASSWORD_CONFIRM = 'signup.password_confirm'
+export const SIGNUP_NAME     = 'signup.name'
+export const SIGNUP_LASTNAME = 'signup.lastname'

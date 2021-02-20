@@ -1,0 +1,60 @@
+.main-menu {
+    $self: 'main-menu';
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin-top: 2em;
+
+        .#{$self}__item {
+            display: flex;
+            width: max-content;
+            align-items: center;
+            transition: .4s;
+
+            &.active {
+                svg {
+                    fill:#4E03E0;
+                }
+
+                h3 {
+                    color:#4E03E0;
+                }
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    fill:#222;
+                    transition: .4s;
+                }
+    
+                h3 {
+                    margin: 0;  
+                    margin-left: 1em;
+                    transition: .4s;
+                }
+            }
+
+            & + li {
+                margin-top: 2em;
+            }
+
+            &:hover {
+                transform: translateX(10px);
+
+                svg {
+                    fill:#4E03E0;
+                }
+
+                h3 {
+                    color:#4E03E0;
+                }
+            }
+        }
+    }
+}

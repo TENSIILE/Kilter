@@ -1,0 +1,69 @@
+@import '../../static/scrollbar.scss';
+
+.reminder__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    max-width: 400px;
+    max-height: 800px;
+    padding: 1em;
+    overflow-y: auto;
+
+    @extend .scrollbar-kilter;
+
+    &::-webkit-scrollbar-thumb {
+        background: #4503c7;
+        border-radius: 20px;
+
+        background-clip: padding-box;
+        border: 7px solid transparent;
+    }
+
+    .reminder {
+        position: relative;
+        background: rgba(24,253,132,.2);
+        width: 100%;
+        min-height: 150px;
+        max-height: 500px;
+        border-radius: 10px;
+        padding: 2em;
+        font-weight: 500;
+        overflow: hidden;
+        overflow-y: auto;
+
+        &__date, &__title {
+            color:rgba(0,0,0,.5);       
+        }
+
+        &__title {
+            margin-top: 1em;
+            overflow-wrap: anywhere;
+            white-space: pre-line;
+            overflow-y: auto;
+        }
+
+        @extend .scrollbar-kilter;
+
+        &.danger {
+            background: #FFC8C8;
+        }
+
+        &.sky {
+            background: #C8F2FF;
+        }
+
+        &.success {
+            background: #18fd8433;
+        }
+
+        &.warning {
+            background: #FFF6C8;
+        }
+
+        & + .reminder {
+            margin-top: 1em;
+        }
+    }
+}

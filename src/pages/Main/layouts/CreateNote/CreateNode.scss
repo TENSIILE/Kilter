@@ -1,0 +1,22 @@
+.create-note {
+    position: relative;
+    padding: 2em;
+    width: 100%;
+    height: calc(100% - 100px);
+
+    .inputs-text {
+        height: 100%;
+    }
+
+    .btn-actions {
+        margin-top: 1em;
+
+        button + button {
+            margin-left: 1em;
+        }
+
+        button:first-child {
+            width: 200px;
+        }
+    }
+}

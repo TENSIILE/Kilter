@@ -1,0 +1,79 @@
+.groups {
+    position: relative;
+    width: 100%;
+    margin-top: 3em;
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: darken(#FBFBFB, 5);
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #4E03E0;
+        border-radius: 4px;
+    }
+
+    $self: 'groups';
+
+    &__section {
+        margin-bottom: 2em;
+
+        &-title {
+            position: relative;
+            text-transform: uppercase;
+            color:#ccc;
+            font-weight: normal;
+            margin-left: 2.5em;
+        }
+
+        .#{$self}__item {
+            display: flex;
+            flex-direction: column;
+            width: max-content;
+            margin-bottom: 1em;
+
+            a {
+                display: flex;
+                align-items: center;
+                transition: .4s;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    fill:#ccc;
+                    transition: .4s;
+                }
+
+                p {
+                    margin: 0;
+                    color:#222;
+                    margin-left: 1em;
+                    transition: .4s;
+                }
+
+                & + a {
+                    margin-top: 1em;
+                }
+
+                &:hover {
+                    transform: translateX(10px);
+    
+                    svg {
+                        fill:#4E03E0;
+                    }
+    
+                    p {
+                        color:#4E03E0;
+                    }
+                }
+            }
+        }
+    }
+}
