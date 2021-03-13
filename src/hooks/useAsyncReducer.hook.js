@@ -1,11 +1,16 @@
-import { useState } from "react"
+import { useState, useEffect } from 'react'
+import { INIT } from '../redux/types/system.type'
 
 export const useAsyncReducer = (reducer, initialState) => {
-    const [state, setState] = useState(initialState)
+  const [state, setState] = useState(initialState)
 
-    const dispatch = async (action) => {
-        setState(await reducer(state, action))
-    }
+  const dispatch = async action => {
+    setState(await reducer(state, action))
+  }
 
-    return [state, dispatch]
+  useEffect(() => {
+    dispatch({ type: INIT })
+  }, [])
+
+  return [state, dispatch]
 }

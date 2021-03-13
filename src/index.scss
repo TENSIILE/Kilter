@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 
+$main-color: #4e03e0;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -35,6 +37,104 @@ code {
   }
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 130%;
+}
+
+button[type='button'].ant-btn {
+  &.ant-btn-primary:not(.ant-btn-dangerous) {
+    background: $main-color;
+    border-color: $main-color;
+
+    &:hover {
+      background: darken($main-color, 5) !important;
+    }
+  }
+
+  &.ant-btn-lg:not(.ant-btn-primary):hover {
+    color: $main-color;
+    border-color: $main-color;
+  }
+}
+
+.ant-switch.ant-switch-checked {
+  background: $main-color;
+  box-shadow: 0 0 0 1px transparentize($main-color, 0.8) !important;
+}
+
+.ant-tree {
+  &.ant-tree-directory .ant-tree-treenode-selected::before {
+    background: $main-color !important;
+  }
+}
+
+input.ant-input:hover {
+  border-color: $main-color !important;
+}
+
+input.ant-input:focus {
+  border-color: $main-color !important;
+  box-shadow: 0 0 0 2px transparentize($main-color, 0.8);
+}
+
+.ant-input-affix-wrapper:hover {
+  border-color: $main-color !important;
+}
+
+.ant-input-affix-wrapper {
+  &-focused {
+    border-color: $main-color !important;
+    box-shadow: 0 0 0 2px transparentize($main-color, 0.8);
+  }
+}
+
+.ant-select:hover .ant-select-selector {
+  border-color: $main-color !important;
+}
+
+.ant-select.ant-select-focused {
+  border-color: $main-color !important;
+  box-shadow: 0 0 0 1px transparentize($main-color, 0.8) !important;
+
+  .ant-select-selector {
+    border-color: $main-color !important;
+  }
+}
+
+.ant-tabs {
+  &-tab-btn {
+    color: $main-color !important;
+  }
+
+  &-ink-bar {
+    background: $main-color;
+  }
+}
+
+.ant-checkbox,
+.ant-checkbox-wrapper {
+  &:hover {
+    .ant-checkbox-inner {
+      border-color: $main-color !important;
+    }
+  }
+
+  .ant-checkbox-input:focus + .ant-checkbox-inner {
+    border-color: $main-color !important;
+  }
+
+  &.ant-checkbox-checked {
+    .ant-checkbox-inner {
+      background: $main-color !important;
+      border-color: $main-color !important;
+    }
+    &::after {
+      border-color: $main-color !important;
+    }
+  }
 }

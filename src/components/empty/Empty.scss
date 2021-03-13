@@ -1,0 +1,22 @@
+.empty_data {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__icon {
+    fill: #ccc;
+    width: 75px;
+    height: 75px;
+  }
+
+  &__text {
+    text-align: center;
+    color: #ccc;
+    margin-top: 1em;
+  }
+}

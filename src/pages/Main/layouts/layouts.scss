@@ -1,4 +1,4 @@
-.page-container {
+.page_container {
     position: relative;
     width: 100%;
     padding: 1em;
@@ -6,5 +6,34 @@
 
     input {
         margin-bottom: 1em;
+    }
+
+    .group_container {
+        &__added_note {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__select {
+            display: flex;
+            margin-bottom: 1em;
+
+            .ant-select {
+                width: 100%;
+                
+                & + .ant-select {
+                    margin-left: 1em;
+                }
+            }
+        }
+
+        &__input_group {
+            display: flex;
+            margin: 0 .1em;
+
+            button {
+                margin-left: 0.5em;
+            }
+        }
     }
 }

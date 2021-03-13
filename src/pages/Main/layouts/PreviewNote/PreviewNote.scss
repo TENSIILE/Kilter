@@ -1,0 +1,44 @@
+@import '../../../../static/scrollbar.scss';
+
+.preview_note {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  margin-top: 1em;
+  height: calc(100% - 100px);
+  overflow-y: auto;
+
+  @extend .scrollbar-kilter-done;
+
+  &__data {
+    img {
+      width: 50%;
+    }
+  }
+
+  &__tags {
+    position: relative;
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 1em;
+    margin-bottom: 2em;
+
+    li {
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      background: #f2f2f2;
+      color: #222;
+      width: min-content;
+      margin: 0.5em;
+
+      & + li {
+        margin-left: 1em;
+      }
+    }
+  }
+}

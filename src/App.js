@@ -11,14 +11,17 @@ function App() {
   const routes = useRoutes(isAuthenticated)
 
   return (
-    <AuthContext.Provider value={{
-      userId, token, login, logout
-    }}>
-      <div className="container">
+    <AuthContext.Provider
+      value={{
+        userId,
+        token,
+        login,
+        logout,
+      }}
+    >
+      <div className='container'>
         <BrowserRouter>
-          <AlertState>
-            {routes}
-          </AlertState>
+          <AlertState>{routes}</AlertState>
         </BrowserRouter>
       </div>
     </AuthContext.Provider>

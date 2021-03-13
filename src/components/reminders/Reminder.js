@@ -1,19 +1,35 @@
+import classnames from 'classnames'
+import { LightenDarkenColor } from 'lighten-darken-color'
+import { Empty } from '../'
 import './Reminder.scss'
 
-export const Reminder = ({ timeStart = '8:05', timeEnd = '9:50', title = 'Название напоминания 1' }) => {
-    return (
-        <div className='reminder'>
-            <span className="reminder__date">{`${timeStart} - ${timeEnd}`}</span>
-            <h2 className='reminder__title'>{title}</h2>
-        </div>
-    )
+export const Reminder = ({ title, className, color }) => {
+  return (
+    <div
+      className={classnames('reminder', [className])}
+      style={{
+        backgroundColor: color && LightenDarkenColor(color, 200),
+      }}
+    >
+      <h2 className='reminder__title'>{title}</h2>
+    </div>
+  )
 }
 
 Reminder.Container = ({ children }) => {
+  if (!children.length) {
     return (
-        <div className='reminder__container'>
-            <h1>Напоминания</h1>
-            {children}
-        </div>
+      <div className='reminder_container'>
+        <h1>Напоминания</h1>
+        <Empty text='Напоминаний нет!' />
+      </div>
     )
+  }
+
+  return (
+    <div className='reminder_container'>
+      <h1>Напоминания</h1>
+      {children}
+    </div>
+  )
 }
