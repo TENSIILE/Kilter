@@ -1,0 +1,96 @@
+@import '../../../../static/scrollbar.scss';
+
+.groups {
+  position: relative;
+  width: 100%;
+  margin-top: 3em;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  @extend .scrollbar-kilter-done;
+
+  $self: 'groups';
+
+  &__section {
+    margin-bottom: 2em;
+
+    &-title {
+      position: relative;
+      text-transform: uppercase;
+      color: #ccc;
+      font-weight: normal;
+      margin-left: 2.5em;
+    }
+
+    .#{$self}__item {
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+      margin-bottom: 1em;
+      width: 90%;
+
+      .#{$self}__close_svg {
+        width: 12px;
+        height: 12px;
+        opacity: 0;
+        visibility: hidden;
+        fill: #ccc !important;
+        transition: 0.4s;
+
+        &:hover {
+          fill: #ff5154 !important;
+        }
+      }
+
+      a {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.4s;
+
+        .#{$self}__link_content {
+          display: flex;
+          align-items: center;
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: #ccc;
+          transition: 0.4s;
+        }
+
+        p {
+          margin: 0;
+          color: #222;
+          margin-left: 1em;
+          transition: 0.4s;
+        }
+
+        & + a {
+          margin-top: 1em;
+        }
+
+        &:hover {
+          transform: translateX(10px);
+
+          .#{$self}__close_svg {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          svg {
+            fill: #4e03e0;
+          }
+
+          p {
+            color: #4e03e0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+export { AuthInputReducer } from './AuthInputReducer'
+export { AlertReducer } from './AlertReducer'
+export { TagsReducer } from './mainReducers/TagsReducer'
+export { InputReducer } from './mainReducers/InputReducer'
+export { StatusesReducer } from './mainReducers/StatusesReducer'
+export { GroupReducer } from './mainReducers/GroupReducer'
+export { TrashReducer } from './mainReducers/TrashReducer'
+export { NoteReducer, NoteSettingsReducer } from './mainReducers/NoteReducer'

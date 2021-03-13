@@ -1,0 +1,5 @@
+export const TRASH_ADD_NOTE = 'MAIN/ADD_NOTE'
+export const TRASH_ADD_TAG = 'MAIN/ADD_TAG'
+
+export const TRASH_DELETE_NOTE = 'MAIN/DELETE_NOTE'
+export const TRASH_DELETE_TAG = 'MAIN/DELETE_TAG'

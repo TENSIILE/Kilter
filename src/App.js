@@ -1,8 +1,30 @@
+import { BrowserRouter } from 'react-router-dom'
+import { useAuth } from './hooks/useAuth.hook'
+import { useRoutes } from './routes'
+import { AuthContext } from './contexts/authContext'
+import { AlertState } from './contexts/alert/alertState'
+
 function App() {
+  const { userId, token, login, logout } = useAuth()
+  const isAuthenticated = !!token
+
+  const routes = useRoutes(isAuthenticated)
+
   return (
-    <div className="App">
-      <h1>Hello World</h1>
-    </div>
+    <AuthContext.Provider
+      value={{
+        userId,
+        token,
+        login,
+        logout,
+      }}
+    >
+      <div className='container'>
+        <BrowserRouter>
+          <AlertState>{routes}</AlertState>
+        </BrowserRouter>
+      </div>
+    </AuthContext.Provider>
   )
 }
 

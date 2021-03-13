@@ -1,0 +1,48 @@
+import { createContext } from 'react'
+
+export const MainContext = createContext({
+  inputs: {},
+  onChangeInputHandler: e => {},
+  onClearInputHandler: () => {},
+  tags: {
+    list: [],
+    authorId: '',
+  },
+  onKeydownInputHandler: () => {},
+  onRemoveTagHandler: id => {},
+  statuses: {
+    list: [],
+    authorId: '',
+  },
+  onCreateStatusHandler: () => {},
+  onRemoveStatusHandler: id => {},
+  onSelectColorHandler: () => {},
+  trash: {
+    list: [[], []],
+    authorId: '',
+  },
+  onRemoveCurrentNoteTrashHandler: id => {},
+  onRemoveCurrentTagTrashHandler: id => {},
+  groups: {
+    list: [],
+    authorId: '',
+  },
+  onSelectDirHandler: () => {},
+  tree: null,
+  onRemoveGroupHandler: () => {},
+  notes: [],
+  onNoteSettingsChangeStatusHandler: select => {},
+  onNoteSettingsChangeTagHandler: select => {},
+  noteSettings: {},
+  onNoteSettingsChangeReminderHandler: () => {},
+  onNoteSettingsChangeImportantHandler: () => {},
+  onRemoveNoteHandler: id => {},
+  onNoteChangeCheckedHandler: id => {},
+  onSelectInGroupChangeNoteHandler: note => {},
+  onSelectInGroupChangeGroupHandler: group => {},
+  onAddItemToGroupHandler: () => {},
+  onRemoveItemFromGroupHandler: (parent_key, child_key) => {},
+  onCreateNewNoteHandler: () => {},
+  onViewNoteHandler: () => {},
+  onViewNoteFullHandler: id => {},
+})

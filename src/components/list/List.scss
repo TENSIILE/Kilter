@@ -1,0 +1,171 @@
+@import '../../static/scrollbar.scss';
+
+.list-notes {
+  $self: 'list-notes';
+  overflow-y: auto;
+  height: calc(100% - 100px);
+
+  @extend .scrollbar-kilter;
+
+  &::-webkit-scrollbar-thumb {
+    background: #4503c7;
+    border-radius: 20px;
+
+    background-clip: padding-box;
+    border: 7px solid transparent;
+  }
+
+  &__catalog {
+    position: relative;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+
+    .#{$self}__item {
+      display: flex;
+      align-items: center;
+      padding: 0.5em;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      box-shadow: 0 0 0 transparent;
+      margin: 0 1em;
+      transition: 0.4s;
+
+      &.tag {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1em;
+
+        p {
+          width: 100%;
+          margin: 0;
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        &:hover .list-notes__item-action {
+          width: 20px;
+        }
+      }
+
+      &.status {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1em;
+
+        p {
+          width: 100%;
+          margin: 0;
+        }
+      }
+
+      &:hover {
+        border-color: #e7e7e7;
+      }
+
+      .ant-checkbox {
+        margin-left: 1em;
+      }
+
+      p {
+        margin: 0;
+        margin-left: 1em;
+        width: 100%;
+      }
+
+      span.status {
+        margin-left: auto;
+        padding: 0.5em 1.5em;
+        border-radius: 20px;
+        background: rgba(78, 3, 224, 0.1);
+        color: #4e03e0;
+        text-align: center;
+      }
+
+      & + .#{$self}__item {
+        margin-top: 1em;
+      }
+
+      &:hover .list-notes__item-action {
+        width: 60px;
+        min-width: 60px;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &-action {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin: 0 1em;
+        opacity: 0;
+        width: 0;
+        min-width: 0;
+        visibility: hidden;
+        transition: 0.4s;
+
+        &.trash,
+        &.tag,
+        &.status {
+          display: flex;
+          justify-content: flex-end;
+
+          .trash {
+            margin-left: auto;
+          }
+
+          label {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+          }
+
+          input[type='color'] {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+
+        svg {
+          fill: #969696;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+          transition: 0.4s;
+
+          & + svg {
+            margin-left: 1em;
+          }
+
+          &.view {
+            &:hover {
+              fill: #4e03e0;
+            }
+          }
+
+          &.trash {
+            fill: #f17575;
+
+            &:hover {
+              fill: darken(#f17575, 10);
+            }
+
+            &:active {
+              fill: darken(#f17575, 20);
+            }
+          }
+
+          &.picker {
+            &:hover {
+              fill: #4e03e0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

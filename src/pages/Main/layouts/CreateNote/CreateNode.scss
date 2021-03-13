@@ -1,0 +1,95 @@
+@import '../../../../static/scrollbar.scss';
+
+.create_note {
+  position: relative;
+  padding: 2em;
+  width: 100%;
+  height: calc(100% - 100px);
+
+  &__preview {
+    height: 100%;
+    overflow-y: auto;
+
+    @extend .scrollbar-kilter-done;
+
+    img {
+      width: 50%;
+    }
+  }
+
+  .inputs_text {
+    height: 100%;
+  }
+
+  .btn_actions {
+    display: flex;
+    margin-top: 1em;
+
+    button + button {
+      margin-left: 1em;
+    }
+
+    a {
+      display: block;
+      margin-left: auto;
+    }
+
+    button:first-child {
+      width: 200px;
+    }
+  }
+}
+
+.create_note_settings {
+  $self: create_note_settings;
+  width: 100%;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    height: calc(100% - 100px);
+
+    .#{$self}__item {
+      margin-top: 1em;
+      padding-bottom: 1em;
+      border-bottom: 1px solid #eee;
+
+      .#{$self}__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        &.item--center {
+          align-items: center;
+        }
+      }
+
+      .#{$self}__text {
+        h3 {
+          font-size: 18px;
+          font-weight: normal;
+          margin: 0;
+        }
+        span {
+          color: #ccc;
+          width: 75%;
+          display: block;
+          font-size: 12px;
+          margin-top: 1em;
+        }
+      }
+
+      .#{$self}__addon {
+        margin-top: 1em;
+      }
+
+      .ant-select {
+        min-width: 200px;
+        max-width: 600px;
+      }
+    }
+  }
+}
