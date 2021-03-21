@@ -1,4 +1,4 @@
 {
     "SESSION_NAME": "data_kilter",
-    "SERVER_HOST": "http://localhost/api"
+    "SERVER_HOST": "https://kilternotes.000webhostapp.com/api"
 }
