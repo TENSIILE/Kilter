@@ -45,4 +45,5 @@ export const MainContext = createContext({
   onCreateNewNoteHandler: () => {},
   onViewNoteHandler: () => {},
   onViewNoteFullHandler: id => {},
+  onBuyPremiumHandler: () => {},
 })

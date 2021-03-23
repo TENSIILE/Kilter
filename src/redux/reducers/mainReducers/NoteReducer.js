@@ -48,6 +48,7 @@ export const NoteReducer = async (state, action) => {
       )
       return [...state, action.payload]
     case NOTE_REMOVE:
+      await API().removeNote(action.payload)
       return state.filter(note => note.id !== action.payload)
     case NOTE_CHECKED:
       await API().checkedNote(action.payload)

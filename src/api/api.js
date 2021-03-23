@@ -6,20 +6,30 @@ export const API = () => {
   const userId = JSON.parse(session)?.userId
   const token = JSON.parse(session)?.token
 
-  const returnRequestObject = (method = 'GET', body) => {
+  const returnRequestObject = (method = 'GET', body = null) => {
+    if (body instanceof FormData) {
+      body.append('_token', token)
+    }
+
     return {
       method,
       body,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
     }
+  }
+
+  const parseObjectToFormData = obj => {
+    const form = new FormData()
+
+    for (let key in obj) {
+      form.append(key, obj[key])
+    }
+
+    return form
   }
 
   const GET_DATA = async link => {
     const response = await fetch(
-      `${config.SERVER_HOST}/${link}?authorId=${userId}`,
+      `${config.SERVER_HOST}/${link}?authorId=${userId}&_token=${token}`,
       returnRequestObject()
     )
     const data = await response.json()
@@ -32,7 +42,7 @@ export const API = () => {
   }
 
   const SET_DATA = async (link, list) => {
-    const body = JSON.stringify({ list, authorId: userId })
+    const body = parseObjectToFormData({ list, authorId: userId })
 
     return await (
       await fetch(
@@ -43,7 +53,7 @@ export const API = () => {
   }
 
   const setNote = async (...args) => {
-    const body = JSON.stringify({
+    const body = parseObjectToFormData({
       id: args[0],
       title: args[1],
       description: args[2],
@@ -66,14 +76,14 @@ export const API = () => {
   const getNote = async () => {
     return await (
       await fetch(
-        `${config.SERVER_HOST}/getNotes?authorId=${userId}`,
+        `${config.SERVER_HOST}/getNotes?authorId=${userId}&_token=${token}`,
         returnRequestObject()
       )
     ).json()
   }
 
   const removeNote = async id => {
-    const body = JSON.stringify({ id, authorId: userId })
+    const body = parseObjectToFormData({ id, authorId: userId })
 
     return await (
       await fetch(
@@ -84,7 +94,7 @@ export const API = () => {
   }
 
   const checkedNote = async id => {
-    const body = JSON.stringify({ id, authorId: userId })
+    const body = parseObjectToFormData({ id, authorId: userId })
 
     return await (
       await fetch(
