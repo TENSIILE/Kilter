@@ -2,14 +2,17 @@ import { useContext } from 'react'
 import classnames from 'classnames'
 import { Link } from 'react-router-dom'
 import { RouteContext } from '../../../../contexts/routeContext'
+import { MainContext } from '../../../../contexts/main/mainContext'
 import { ReactComponent as InboxSvg } from '../../../../static/icons/inbox.svg'
 import { ReactComponent as TrashSvg } from '../../../../static/icons/trash.svg'
 import { ReactComponent as TagSvg } from '../../../../static/icons/tag.svg'
 import { ReactComponent as BoxSvg } from '../../../../static/icons/delivery-box.svg'
 import { ReactComponent as DocumentSvg } from '../../../../static/icons/document.svg'
+import { ReactComponent as SubsSvg } from '../../../../static/icons/subscription.svg'
 import './MainMenu.scss'
 
 export const MainMenu = () => {
+  const logic = useContext(MainContext)
   const { focus } = useContext(RouteContext)
 
   return (
@@ -45,6 +48,12 @@ export const MainMenu = () => {
           <Link to='/trash'>
             <TrashSvg />
             <h3>Корзина</h3>
+          </Link>
+        </li>
+        <li className='main-menu__item premium'>
+          <Link to='' onClick={logic.onBuyPremiumHandler}>
+            <SubsSvg />
+            <h3>Купить Premium</h3>
           </Link>
         </li>
       </ul>

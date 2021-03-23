@@ -51,7 +51,6 @@ export const TrashReducer = async (state, action) => {
         'setTrash',
         JSON.stringify(local_state_delete_note.list)
       )
-      await API().removeNote(action.payload)
 
       return local_state_delete_note
     case TRASH_DELETE_TAG:

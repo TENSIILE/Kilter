@@ -9,14 +9,17 @@ export const useHttp = () => {
       try {
         setIsLoading(true)
 
+        const form = new FormData()
+
         if (body) {
-          body = JSON.stringify(body)
-          headers['Content-Type'] = 'application/json'
+          for (let key in body) {
+            form.append(key, body[key])
+          }
         }
 
         const options = {
           method,
-          body,
+          body: form,
           headers,
         }
 

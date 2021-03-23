@@ -313,6 +313,12 @@ export const MainState = ({ children }) => {
     dispatchNoteSettings(noteSettingsSetNoteAction(JSON.parse(note)))
   }
 
+  // Подписка
+  const onBuyPremiumHandler = e => {
+    e.preventDefault()
+    alert.show('Внимание!', 'Данная функция временно отключена!', 'warning')
+  }
+
   return (
     <MainContext.Provider
       value={{
@@ -348,6 +354,7 @@ export const MainState = ({ children }) => {
         onCreateNewNoteHandler,
         onViewNoteHandler,
         onViewNoteFullHandler,
+        onBuyPremiumHandler,
       }}
     >
       {children}

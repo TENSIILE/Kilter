@@ -1,60 +1,124 @@
 .main-menu {
-    $self: 'main-menu';
+  $self: 'main-menu';
 
-    &__list {
-        list-style: none;
-        padding: 0;
-        margin-top: 2em;
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2em;
 
-        .#{$self}__item {
-            display: flex;
-            width: max-content;
-            align-items: center;
-            transition: .4s;
+    .#{$self}__item {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      border-radius: 4px;
+      transition: 0.4s;
 
-            &.active {
-                svg {
-                    fill:#4E03E0;
-                }
+      &.premium {
+        position: relative;
+        background: rgba(78, 3, 224, 0.1);
+        cursor: pointer;
 
-                h3 {
-                    color:#4E03E0;
-                }
-            }
-
-            a {
-                display: flex;
-                align-items: center;
-
-                svg {
-                    width: 20px;
-                    height: 20px;
-                    fill:#222;
-                    transition: .4s;
-                }
-    
-                h3 {
-                    margin: 0;  
-                    margin-left: 1em;
-                    transition: .4s;
-                }
-            }
-
-            & + li {
-                margin-top: 2em;
-            }
-
-            &:hover {
-                transform: translateX(10px);
-
-                svg {
-                    fill:#4E03E0;
-                }
-
-                h3 {
-                    color:#4E03E0;
-                }
-            }
+        a {
+          padding: 0.5em;
+          transition: 0.4s;
         }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: -100%;
+          top: 0;
+          width: 50%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.4);
+          display: block;
+          border-radius: 4px;
+          transform: skewX(-45deg);
+          animation: slice 2s ease-in infinite;
+          animation-delay: 3s;
+          filter: blur(5px);
+          pointer-events: none;
+        }
+
+        &:hover {
+          background: rgba(78, 3, 224, 0.2);
+
+          a {
+            padding: 0.5em 2em;
+          }
+        }
+
+        &:active {
+          background: #4e03e0;
+          svg {
+            fill: white;
+          }
+          h3 {
+            color: white;
+          }
+        }
+
+        svg {
+          fill: #4e03e0;
+        }
+
+        h3 {
+          color: #4e03e0;
+        }
+      }
+
+      &.active {
+        svg {
+          fill: #4e03e0;
+        }
+
+        h3 {
+          color: #4e03e0;
+        }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: #222;
+          transition: 0.4s;
+        }
+
+        h3 {
+          margin: 0;
+          margin-left: 1em;
+          transition: 0.4s;
+        }
+      }
+
+      & + li {
+        margin-top: 2em;
+      }
+
+      &:hover {
+        transform: translateX(10px);
+
+        svg {
+          fill: #4e03e0;
+        }
+
+        h3 {
+          color: #4e03e0;
+        }
+      }
     }
+  }
+}
+
+@keyframes slice {
+  from {
+    left: -200%;
+  }
+  to {
+    left: 200%;
+  }
 }
